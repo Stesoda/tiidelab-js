@@ -8,15 +8,20 @@
 <body>
     <script>
 
+        // ##QUESTION##
+        // USSD Recharge displaying:
+        // 1. Airtime-Self
+        // 2. Airtime-Others
+        // 3. Data
+        // 4. Transfer
 
+        // Answer using nested if statements
 
-        var option=(prompt(`Please choose option:\n 
+        var option= prompt(`Please choose option:\n 
         1. Airtime-Self\n
         2.Airtime-Others\n
         3.Data\n
-        4.Transfer`));
-
-    
+        4.Transfer`);
 
 
        
@@ -38,6 +43,7 @@
         
         // Airtime for others
         else if(option==2){
+            //prompt user to 
             prompt("Enter Phone number");
              amount2= prompt(`Choose option:\n 
                 1.100 \n
@@ -54,7 +60,8 @@
     }
         // //Data
 
-        else if(option==3){
+        else if(option==3)
+        {
              prompt("Enter Phone number");
             res = prompt(`Choose option:\n 
                 1.1GB-N500\n
@@ -62,23 +69,84 @@
                 3.3GB-N2000\n
                 4.4GB-N3000`);
         
+                // Transaction-confirmation
                 let ans3 = confirm("Are you sure you want to make this transaction?")
-                if (ans3 == true){
+                if (ans3 == true)
+                {
                     alert("Subscription successful");
-             } else {
+                } 
+             
+             //if transaction fails
+             else
+              {
                 alert("Transaction Cancelled");
+             }
         }
-        }
-        // else if(option==4){
-        //     res2 = prompt(`Choose transfer option:\n 
-        //         1.Data\n
-        //         2.Airtime`);
-        //         if
+
+        // Transfer-option
+        else if(option==4)
+        {
+            // prompt for user to choose what they want to transfer
+            res2 = prompt(`Choose transfer option:\n 
+                1.Data\n
+                2.Airtime`);
+
+                // If option-Data is chosen
+                if (res2==1)
+                {
+                    // another prompt to choose data plan
+                    prompt("Enter Phone number");
+             res3= prompt(`Choose Data Plan:\n 
+                1.1GB-N500\n
+                2.2GB-N1000\n
+                3.3GB-N2000\n
+                4.4GB-N3000`);
+                    
+                    // confirmation
+                let ans3=confirm("Are you sure you want to make this transaction?")
+                if (ans3 == true)
+                {
+                    alert("Transfer successful");
+                } 
+                
+                else 
+                {
+                alert("Transaction Cancelled");
+                }
+
+                }
+
+                // if option airtime-transfer is chosen
+                else if(res2==2)
+                {
+                    // prompt to enter number beneficiaries number and amount
+                    prompt("Enter Phone number");
+             res4= prompt(` choose amount:\n 
+                1.100 \n
+                2.200\n
+                3.300\n
+                4.400`);
+                    
+                    // confirmation
+                let ans4=confirm("Are you sure you want to make this transaction?")
+                if (ans4 == true)
+                {
+                    alert("Transfer successful");
+                } 
+                
+                else 
+                {
+                        //if transaction fails
+                alert("Transaction Cancelled");
+                }
+
+                }
+ 
             
-        // }
+        }
 
         else {
-            alert("Thank you!");
+            alert("Please try again");
         }
 
        
