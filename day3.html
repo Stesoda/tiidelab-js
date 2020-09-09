@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var option=(prompt(`Please choose option:\n 
+        1. Airtime-Self\n
+        2.Airtime-Others\n
+        3.Data\n
+        4.Transfer`));
+
+
+       
+        //Airtime
+        if(option==1){
+            amount = prompt(` choose amount:\n 
+                1.100 \n
+                2.200\n
+                3.300\n
+                4.400`);
+        
+                let ans= confirm("Are you sure you want to make this transaction?")
+                if (ans == true){
+                    alert("Recharge successful")
+             } else {
+                alert("Transaction Cancelled")
+        }
+        }
+        
+        // // Airtime for others
+        // else if(option==2){
+        //     prompt("Enter Phone number");
+        //     let others = prompt(`Choose option:\n 
+        //         1.100 \n
+        //         2.200\n
+        //         3.300\n
+        //         4.400`);
+        
+        //         let others = confirm("Are you sure you want to make this transaction?")
+        //         if (others == true){
+        //             alert("Recharge successful")
+        //      } else {
+        //         alert("Transaction Cancelled")
+        // }
+       
+        // else if(option==3){
+        // //      prompt("Enter Phone number");
+        //     let res = prompt(`Choose option:\n 
+        //         1.1GB \n
+        //         2.2GB\n
+        //         3.3GB\n
+        //         4.4GB`);
+        
+        //         let res2 = confirm("Are you sure you want to make this transaction?")
+        //         if (res2 == true){
+        //             alert("Recharge successful")
+        //      } else {
+        //         alert("Transaction Cancelled")
+        // }
+        // else if(option==4){
+        //     alert("Transfer")
+        // }
+        else{
+            alert("Thank you")
+        }
+
+       
+
+
+
+        
+        
+        
+    </script>
+</body>
+</html>
