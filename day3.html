@@ -8,11 +8,15 @@
 <body>
     <script>
 
+
+
         var option=(prompt(`Please choose option:\n 
         1. Airtime-Self\n
         2.Airtime-Others\n
         3.Data\n
         4.Transfer`));
+
+    
 
 
        
@@ -24,49 +28,57 @@
                 3.300\n
                 4.400`);
         
-                let ans= confirm("Are you sure you want to make this transaction?")
-                if (ans == true){
-                    alert("Recharge successful")
+                let ans1= confirm("Are you sure you want to make this transaction?");
+                if (ans1 == true){
+                    alert("Recharge successful");
              } else {
-                alert("Transaction Cancelled")
+                alert("Transaction Cancelled");
         }
         }
         
-        // // Airtime for others
-        // else if(option==2){
-        //     prompt("Enter Phone number");
-        //     let others = prompt(`Choose option:\n 
-        //         1.100 \n
-        //         2.200\n
-        //         3.300\n
-        //         4.400`);
+        // Airtime for others
+        else if(option==2){
+            prompt("Enter Phone number");
+             amount2= prompt(`Choose option:\n 
+                1.100 \n
+                2.200\n
+                3.300\n
+                4.400`);
         
-        //         let others = confirm("Are you sure you want to make this transaction?")
-        //         if (others == true){
-        //             alert("Recharge successful")
-        //      } else {
-        //         alert("Transaction Cancelled")
-        // }
-       
-        // else if(option==3){
-        // //      prompt("Enter Phone number");
-        //     let res = prompt(`Choose option:\n 
-        //         1.1GB \n
-        //         2.2GB\n
-        //         3.3GB\n
-        //         4.4GB`);
+                let ans2=confirm("Are you sure you want to make this transaction?")
+                if (ans2 == true){
+                    alert("Recharge successful");
+             } else {
+                alert("Transaction Cancelled");
+        }
+    }
+        // //Data
+
+        else if(option==3){
+             prompt("Enter Phone number");
+            res = prompt(`Choose option:\n 
+                1.1GB-N500\n
+                2.2GB-N1000\n
+                3.3GB-N2000\n
+                4.4GB-N3000`);
         
-        //         let res2 = confirm("Are you sure you want to make this transaction?")
-        //         if (res2 == true){
-        //             alert("Recharge successful")
-        //      } else {
-        //         alert("Transaction Cancelled")
-        // }
+                let ans3 = confirm("Are you sure you want to make this transaction?")
+                if (ans3 == true){
+                    alert("Subscription successful");
+             } else {
+                alert("Transaction Cancelled");
+        }
+        }
         // else if(option==4){
-        //     alert("Transfer")
+        //     res2 = prompt(`Choose transfer option:\n 
+        //         1.Data\n
+        //         2.Airtime`);
+        //         if
+            
         // }
-        else{
-            alert("Thank you")
+
+        else {
+            alert("Thank you!");
         }
 
        
