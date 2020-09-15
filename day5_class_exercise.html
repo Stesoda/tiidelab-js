@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       // class exercise: a simple javascript calculator performing
+        // addition
+        // subtraction
+        // division
+        // multiplication
+
+        var a= Number(prompt("enter a number"));
+        var b= Number(prompt("enter another number"));
+        var operation = Number(prompt(`please choose an operation: 
+        1. addition\n 
+        2.sutraction\n
+        3.division\n
+        4.multiplication`));
+
+        
+
+        // function for addition
+
+        function addition(num1,num2){
+            ans = num1 + num2
+            alert(`${num1} + ${num2} = ${ans}`)
+            
+        }
+           // function for subtraction
+        function subtraction(num1,num2){
+            ans2 = num1 - num2
+            alert(`${num1} - ${num2} = ${ans2}`)
+        }
+       
+
+           // function for division
+        function division(num1,num2){
+            ans3 = num1/num2
+            alert(`${num1} / ${num2} = ${ans3}`)
+        }
+
+           // function for multiplication
+
+        function multiplication(num1,num2){
+            ans4 = num1*num2
+            alert(`${num1} * ${num2} = ${ans4}`)
+        }
+
+
+        // if  user does not enter a valid number
+     if(Number.isNaN(operation) || Number.isNaN(a) || Number.isNaN(b)){
+
+            alert("please enter a valid number")
+
+        }
+        
+        //if  user enters a valid number
+        else {
+
+        
+        //if user selects operation: 1. addition
+
+        if (operation==1)
+        {
+            addition(a,b);
+        
+            
+        }
+
+        //if user selects operation: 2. subtraction
+        else if(operation==2)
+        {
+            subtraction(a,b); 
+        }
+
+        //if user selects operation: 3. division
+        else if(operation==3)
+        {
+            division(a,b);
+
+        
+        } 
+
+        //if user selects operation: 4. multiplication 
+        else if(operation==4)
+        {
+            multiplication(a,b);
+        }
+
+        // if user selects nothing
+        else{
+            alert("Please try again");
+        }
+        }
+   
+
+   </script>
+</body>
+</html>
