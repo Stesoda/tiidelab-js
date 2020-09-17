@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+table, td, th {
+  border: 4px solid #333;
+}    
+</style>
+<body>
+
+<div id="container">
+    
+        <table>
+          <tr>
+            <th>SN</th>
+            <th>Company Name</th>
+            <th>Company Email</th>
+            <th>Phone Number</th>
+            <th>Location</th>
+          </tr>
+          <tbody id="content"></tbody>
+        </table>
+      
+</div>
+
+
+
+
+    <script>
+        
+        companies = [
+  {
+    "name": "TiideLab",
+    "email": "hellotiidelab.com",
+    "phone": 080567890678,
+    "location": "Nigeria",
+  },
+  {
+    "name": "Bascom",
+    "email": "hellobascom.com",
+    "phone": 08078907543 ,
+    "location": "Nigeria",
+  },
+  {
+    "name": "Apple",
+    "email": "helloapple.com",
+    "phone": 78967890567,
+    "location": "USA",
+  },
+  {
+    "name": "Google",
+    "email": "hellogoogle.com",
+    "phone": 979767890,
+    "location": "USA",
+  },
+];
+
+for (i = 0; i<companies.length; i++) {
+  document.getElementById("content").innerHTML += `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${companies[i].name}</td>
+            <td>${companies[i].email}</td>
+            <td>${companies[i].phone}</td>
+            <td>${companies[i].location}</td>
+        </tr>     
+       `;
+}
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-
+// a self-service programme that allows the user to buy or transfer airtime/data
 
 
         var option= Number(prompt(`Please choose option:\n 
@@ -38,7 +38,7 @@
         
         // Airtime for others
         else if(option==2){
-            prompt("Enter Phone number");
+            prompt("Enter Phone number"); //phone number of recipient
              amount2= prompt(`Choose option:\n 
                 1.100 \n
                 2.200\n
@@ -71,52 +71,59 @@
         }
 
         //Transfer
-        // else if(option==4){
-        //     phone_num = Number(prompt("Enter a number"));
-        //     res2 = (`Choose transfer option:\n 
-        //         1.Data\n
-        //         2.Airtime`);
+        else if(option==4){
+            phone_num = Number(prompt("Enter a number"));//phone number of recipient
+              res2 = prompt(`Choose transfer option:\n 
+                1.Data\n
+                2.Airtime`);
             
-        //         if (res2==1)
-        //         {
+            //to transfer data
+                if (res2==1)
+                {
+                prompt(`Choose option:\n 
+                1.1GB-N500\n
+                2.2GB-N1000\n
+                3.3GB-N2000\n
+                4.4GB-N3000`);
+                let ans4 = confirm("Are you sure you want to make this transaction?")
+                if (ans4 == true){
+                    alert("Subscription successful to" + phone_num);
+                } 
+             else {
+                alert("Transaction Cancelled");
+                 }
 
-        //          prompt(`Choose option:\n 
-        //         1.1GB-N500\n
-        //         2.2GB-N1000\n
-        //         3.3GB-N2000\n
-        //         4.4GB-N3000`);
-        //         let ans4 = confirm("Are you sure you want to make this transaction?")
-        //         if (ans4 == true){
-        //             alert("Subscription successful to" + phone_num);
-        //         } 
-        //      else {
-        //         alert("Transaction Cancelled");
-        //          }
+                }
 
-        //         }
-        //     else if(res2==2){
-        //         prompt(`Choose option:\n 
-        //         1.100 \n
-        //         2.200\n
-        //         3.300\n
-        //         4.400`);
+                // to transfer airtime
+            else if(res2==2)
+            {
+                prompt(`Choose option:\n 
+                1.100 \n
+                2.200\n
+                3.300\n
+                4.400`);
         
-        //         let ans5=confirm("Are you sure you want to make this transaction?")
-        //         if (ans5 == true){
-        //             alert("Recharge successful to " + phone_num);
-        //      } else {
-        //         alert("Transaction Cancelled");
-        // }
+                let ans5=confirm("Are you sure you want to make this transaction?")
+                    if (ans5 == true)
+                    {
+                     alert("Recharge successful to " + phone_num);
+                    } 
+            
+                    else{
+                    alert("Transaction Cancelled");
+                    }
 
-        //     }
-
-        //     else {
-        //         alert("Try again")
-        //     }
+            }
+            //if no transfer option is chosen then try again
+            else {
+                    alert("Try again")
+                }
                 
             
-        // }
+        }
 
+        //if no option is selected
         else {
             alert("Thank you!");
         }
