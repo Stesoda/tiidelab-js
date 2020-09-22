@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="add">
+    <div class="form">
+      <div class="form-wrapper">
+        <div class="form-1">
+          <input type="text" placeholder="Enter your Fullname" id="name">
+          <input type="text" placeholder="Enter your Email" id="email">
+        </div>
+  
+        <div class="form-2">
+          <input type="text" placeholder="Enter your Location" id="location">
+          <input type="tel" placeholder="Enter your Phone Number" id="tel"> 
+        </div>
+      </div>
+      <button onclick="addNew()" class="btn add-btn" id="addbtn">Add</button>
+    </div>
+  </div>
+  
+    
+    <div class="section-2">
+      <h4>CLASS EXERCISE</h4>
+      <div class="" id="main">
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    let internalUsers = [
+      {
+        "fullName" : "Sophia Daniels",
+        "email" : "sophia@gmail.com",
+        "location" : "Abuja",
+        "phone" : "08067905422",
+        "img" : "1.jpg",
+        
+      },
+      {
+        "fullName" : "Aisha Opaluwa",
+        "email" : "aisha@gmail.com",
+        "location" : "Abuja",
+        "phone" : "09098765321",
+        "img" : "2.jpg",
+      },
+      {
+        "fullName" : "Samuel Yusuf",
+        "email" : "samuel@gmail.com",
+        "location" : "Abuja",
+        "phone" : "09009876543",
+        "img" : "4.jpg",
+      }
+    ]
+
+
+    internalUserDetails = ''
+
+
+
+    
+    for(i=0; i<internalUsers.length; i++){
+       internalUserDetails += `<div class="profile-container" id="${i}">
+      <img src="${internalUsers[i].img}" alt="${internalUsers[i].fullName} Image"> <br>
+      <div ="txt-info">
+        <strong>Full Name</strong> : <span class="info">${internalUsers[i].fullName}</span> <br>
+        <strong>Email</strong> : <span class="info">${internalUsers[i].email}</span> <br>
+        <strong>Location</strong> : <span class="info">${internalUsers[i].location}</span> <br>
+        <strong>Phone</strong> : <span class="info">${internalUsers[i].phone}</span> <br>
+        <div class="btn-container">
+          <button class="btn del-btn" onclick="deleteMember(${i});">Delete</button>
+          <button class="btn edit-btn">Edit</button>
+        </div>
+      </div>
+      </div><hr>` 
+    }
+    document.getElementById("main").innerHTML = internalUserDetails;
+
+
+
+    /* to add new user*/
+
+     let addNew = () => {
+          let newName = document.getElementById("name").value;
+          let newEmail = document.getElementById("email").value;
+          let newLocation = document.getElementById("location").value;
+          let newPhone = document.getElementById("tel").value;
+
+          newUser = {
+            "fullName" : newName,
+            "email" : newEmail,
+            "location" : newLocation,
+            "phone" : newPhone,
+            
+          }
+
+         internalUsers.push(newUser);
+          internalUserDetails += `<div class="profile-container" id="${i}">
+            <img src="${newUser}" alt="${newUser.fullName} Image"> <br>
+            <div ="txt-info">
+              <strong>Full Name</strong> : <span class="info">${newUser.fullName}</span> <br>
+              <strong>Stack</strong> : <span class="info">${newUser.email}</span> <br>
+              <strong>Location</strong> : <span class="info">${newUser.location}</span> <br>
+              <strong>Location</strong> : <span class="info">${newUser.phone}</span> <br>
+              <div class="btn-container">
+                <button class="btn del-btn" onclick="deleteMember(${i});">Delete</button>
+                <button class="btn edit-btn">Edit</button>
+              </div>
+            </div>
+            </div><hr>` 
+            document.getElementById("main").innerHTML = internalUserDetails;    
+            document.getElementById("addbtn").addEventListener("click", addNew) 
+
+        };
+
+
+
+
+    function deleteMember(x){
+     del = document.getElementById(x);
+     internalUsers.splice(x,1)
+     del.remove()
+    };
+
+</script>
+</body>
+</html>
