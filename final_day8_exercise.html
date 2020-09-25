@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>ARRAY-CRUD</title>
+</head>
+
+<body>
+  
+      </div>
+      <button onclick="addUser()" class="btn add-btn" id="addbtn">Add User</button>
+    </div>
+  </div>
+  
+    
+    <div class="section-2">
+      <h4> DAY 8 CLASS EXERCISE</h4>
+      <div class="" id="main">
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    let internalUsers = [
+      {
+        "fullName" : "Mark Zukerberg",
+        "email" : "mark@gmail.com",
+        "location" : "USA",
+        "phone" : "08067905422",
+        "img" : "./assets/img/1.jpg",
+        
+      },
+      {
+        "fullName" : "Sophia Daniels",
+        "email" : "sophia@gmail.com",
+        "location" : "Abuja",
+        "phone" : "09098765321",
+        "img" : "./assets/img/2.jpg",
+      },
+      {
+        "fullName" : " Adams John",
+        "email" : "adams@gmail.com",
+        "location" : "Abuja",
+        "phone" : "09009876543",
+        "img" : "./assets/img/4.jpg",
+      }
+    ]
+
+//function to display the users details
+function displayInfo(){
+    internalUserDetails = ''
+   
+    
+    for(i=0; i<internalUsers.length; i++){
+        if(internalUsers[i]!=null || internalUsers[i]!=undefined )
+            {
+       internalUserDetails += `<div class="profile-container" id="${i}">
+      <img src="${internalUsers[i].img}" alt="${internalUsers[i].fullName} Image"> <br>
+      <div ="txt-info">
+        <strong>Full Name</strong> : <span class="info">${internalUsers[i].fullName}</span> <br>
+        <strong>Email</strong> : <span class="info">${internalUsers[i].email}</span> <br>
+        <strong>Location</strong> : <span class="info">${internalUsers[i].location}</span> <br>
+        <strong>Phone</strong> : <span class="info">${internalUsers[i].phone}</span> <br>
+        <div class="btn-container">
+          <button class="btn del-btn" onclick="deleteUser(${i});">Delete</button>
+          <button class="btn edit-btn" Onclick="editUser(${i});" >Edit</button>
+        </div>
+      </div>
+      </div><hr>` 
+    }
+    }
+    document.getElementById("main").innerHTML = internalUserDetails;
+   
+    
+} 
+displayInfo()   
+
+
+
+// function to add a new user
+function addUser()
+{
+    let newUser = 
+    { "fullName" :  prompt("Enter your full Name"),
+               "email" :  prompt("Enter your email"),
+               "location" :  prompt("Enter Location"),
+               "phone" :  prompt("Enter your phone"),
+               "img" :  "4.jpg"
+
+    }
+    internalUsers.push(newUser)
+    displayInfo()
+
+}
+
+//  function to edit  an existing user  information
+function editUser(userId)
+{
+    let userDetails = 
+    { "fullName" :  prompt("Enter your full Name",internalUsers[userId].fullName),
+               "email" :  prompt("Enter your email",internalUsers[userId].email),      
+                 "location" :  prompt("Enter your location",internalUsers[userId].location),
+               "phone" :  prompt("Enter your phone",internalUsers[userId].phone),
+               "img" :  prompt("upload Image",internalUsers[userId].img)
+               
+
+    }
+    internalUsers[userId] = internalUserDetails;
+  
+    displayinfo()
+
+}
+
+
+//  function to delete an existing user
+function deleteUser(userId){
+
+internalUsers.splice(userId,1) //you can also use-delete internalUsers[id]
+
+displayInfo()
+}
+
+
+
+
+</script>
+</body>
+</html>

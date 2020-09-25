@@ -4,8 +4,9 @@ body{
   .section{
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-self: center;
   }
+
 
   #theTeam{
     display: flex;
