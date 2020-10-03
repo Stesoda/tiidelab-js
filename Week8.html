@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- CSS -->
+<style>
+    body{
+        background: rgb(110, 85, 110);
+    }
+    input{
+        padding: 10px;
+        margin: 5px;
+    }
+    .main{
+
+      margin: auto;
+      max-width:400px;
+      text-align: center
+  
+    }
+
+    .btn{
+        background: #333;
+        color: #fff;
+    }
+
+    
+</style>
+
+<body>
+    <!--input to add new user -->
+    <div class="main">
+        <STrong><h3> CRUD OPERATION: USERS</h3></STrong>
+    <input type="text" id="fullName" value="" placeholder="Full name"> <br>
+    <input type="text" id="email" placeholder="Email"> <br>
+    <input type="text" id="phone" placeholder="Phone"> <br>
+    <input type="text" id="pics" placeholder=" Enter 1.jpg for photo"> <br>
+
+    <!-- Add user button -->
+    <button onClick="addNewUser()"  class="btn"> Add User</button>
+    <!-- Update user button -->
+    <button onClick="Update()"  class="btn"> Update</button>
+    </div>
+    
+    <!-- Search section -->
+    <div style="margin: auto;">
+    <input type="text" size="40" id="searchbar" placeholder="search users by name"> 
+    <button id="search"  onclick="searchSingle()" class="btn">Search</button>
+	<button id="searchAll"  onclick="searchAll();" class="btn">Search All</button>
+	<button id="searchParam"  onclick="searchPart();" class="btn">Part Search</button>
+    </div>
+    
+
+    <p></p>
+    <p></p>
+    <!-- Users  -->
+    <div id="users"></div>
+
+
+
+
+    <!-- JavaScript Section -->
+    <script>
+        
+        
+ // Users  Array declaration
+        let i = 0;
+        let internalUsers =JSON.parse(localStorage.getItem("internalUsers"))
+       if(internalUsers == null)
+       {
+        internalUsers = [];
+
+       }
+       
+     
+        
+
+//Function to add a new user  to local storage
+        function addNewUser()
+        {
+            
+
+            newUser = 
+            { "fullName" : document.getElementById("fullName").value,
+               "email" : document.getElementById("email").value,
+               "phone" : document.getElementById("phone").value,
+               "pics" : document.getElementById("pics").value
+
+             }
+             internalUsers.push(newUser)
+        
+ 
+            localStorage.setItem("internalUsers",JSON.stringify(internalUsers))
+
+            displayUsers()
+
+
+
+
+        }
+
+//Function to  display users from local storage
+    function displayUsers(){
+       
+       usersPlaceholder =  '';
+      for (i=0; i<internalUsers.length;i++)
+      {
+
+          if(internalUsers[i]!=null || internalUsers[i]!=undefined )
+          {
+          usersPlaceholder +=`<div>
+          <img src="${internalUsers[i].pics}" style="max-height: 100px;"><br>
+          <strong>Full Name</strong> : ${internalUsers[i].fullName}<br>
+          <strong>Email</strong> : ${internalUsers[i].email}<br>
+          <strong>Phone</strong> : ${internalUsers[i].phone}<br>
+          <button  style="background-color:red; color:#FFF " onClick="deleteUser(${i})" >Delete</button>
+          <button style="background-color:green; color:#FFF" onClick="Edit(${i})" >Edit</button>
+
+      </div> <hr>`}
+
+
+      }
+      document.getElementById("users").innerHTML = usersPlaceholder
+}
+
+displayUsers()
+
+
+
+// Function to delete user info from local storage
+
+function deleteUser(userId){
+     if(confirm("Are you sure you want to delete this")){
+    internalUsers.splice(userId,1)
+    localStorage.setItem("InternalUsers",JSON.stringify(userId))
+    displayUsers()
+     }
+ }
+   
+
+
+
+ 
+ 
+// Function to edit user info from local storage
+   function Update(){
+     i = document.getElementById("index").value
+    
+    let updatedRecord = 
+           {    "fullName" :  document.getElementById("fullName").value,
+               "email" :  document.getElementById("email").value,
+               "tel" :  document.getElementById("phone").value,
+               "pics" :  document.getElementById("pics").value
+
+             }
+    users[i]= updatedRecord
+    localStorage.setItem("InternalUsers",JSON.stringify(users))
+    displayUsers()
+    
+
+ }
+
+
+ function Edit(i){
+
+    userRecord = users[i]
+    document.getElementById("fullName").value = userRecord.fullName
+   document.getElementById("email").value = userRecord.email
+    document.getElementById("phone").value = userRecord.tel
+    document.getElementById("pics").value = userRecord.pics
+    document.getElementById("index").value = i;
+
+ }  
+
+
+		
+//Week 8
+
+// this will find only one result for a full Name using find
+
+function searchSingle(param){
+    param = document.getElementById('search').value
+    usersObject= users.find(x=>x.fullName==param)
+    if( usersObject==undefined||usersObject==null){
+        alert("No record found for" + param)
+    } else{
+    users = [];
+    users.push(usersObject)
+   displayUsers() //Updating the loacl storage here will override existing records and delete everything
+    }
+}
+
+//this will find all results that match the search  using filter 
+function searchAll(param){
+    param = document.getElementById('searchAll').value
+    users= users.filter(x=>x.fullName==param)
+    if( users==undefined||users==null){
+        alert("No record found for" + param)
+    } else{
+    users = [];
+    users.push(users)
+   displayUsers() 
+    }
+}
+
+
+
+//this will find all results that match the search  using filter 
+function searchPart(param){
+   
+}
+
+
+
+    </script>
+    
+</body>
+</html>

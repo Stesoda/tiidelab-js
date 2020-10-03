@@ -15,8 +15,8 @@
   </div>
   
     
-    <div class="section-2">
-      <h4> DAY 8 CLASS EXERCISE</h4>
+    <div class="section-1"> 
+      <h4> DAY 8 CLASS EXERCISE: BASIC ARRAY CRUD</h4>
       <div class="" id="main">
       </div>
     </div>
@@ -64,9 +64,9 @@ function displayInfo(){
         <strong>Email</strong> : <span class="info">${internalUsers[i].email}</span> <br>
         <strong>Location</strong> : <span class="info">${internalUsers[i].location}</span> <br>
         <strong>Phone</strong> : <span class="info">${internalUsers[i].phone}</span> <br>
-        <div class="btn-container">
+        <div class="btn-container"> 
           <button class="btn del-btn" onclick="deleteUser(${i});">Delete</button>
-          <button class="btn edit-btn" Onclick="editUser(${i});" >Edit</button>
+          <button class="btn edit-btn" onclick="editUser(${i});" >Edit</button>
         </div>
       </div>
       </div><hr>` 
@@ -79,27 +79,46 @@ function displayInfo(){
 displayInfo()   
 
 
+//############## option 1: add user
+// // function to add a new user
+// function addUser()
+// {
+//     let newUser = 
+//     { "fullName" :  prompt("Enter your full Name"),
+//                "email" :  prompt("Enter your email"),
+//                "location" :  prompt("Enter Location"),
+//                "phone" :  prompt("Enter your phone"),
+//                "img" :  "4.jpg"
 
+//     }
+//     internalUsers.push(newUser)
+//     displayInfo()
+
+// }
+
+
+//############## option 2: add user
 // function to add a new user
-function addUser()
-{
-    let newUser = 
-    { "fullName" :  prompt("Enter your full Name"),
+function addUser(){
+  internalUsers[internalUsers.length]=
+  {            "img" :  prompt("Enter 1.jpg or 2.jpg for profile pic"),
+              "fullName" :  prompt("Enter your full Name"),
                "email" :  prompt("Enter your email"),
-               "location" :  prompt("Enter Location"),
-               "phone" :  prompt("Enter your phone"),
-               "img" :  "4.jpg"
+               "location" :  prompt("Enter location"),
+               "phone" :  prompt("Enter your phone")
+               
+  }
 
-    }
-    internalUsers.push(newUser)
-    displayInfo()
-
+  displayInfo();
 }
+
 
 //  function to edit  an existing user  information
 function editUser(userId)
 {
-    let userDetails = 
+  conf = confirm("Are you sure you want to edit details?")
+  if(conf==true){
+    internalUsers[userId] = 
     { "fullName" :  prompt("Enter your full Name",internalUsers[userId].fullName),
                "email" :  prompt("Enter your email",internalUsers[userId].email),      
                  "location" :  prompt("Enter your location",internalUsers[userId].location),
@@ -108,20 +127,24 @@ function editUser(userId)
                
 
     }
-    internalUsers[userId] = internalUserDetails;
-  
-    displayinfo()
+    displayInfo();
+     
+  }
+    
 
 }
 
 
 //  function to delete an existing user
 function deleteUser(userId){
+  conf= confirm("Are you sure you want to delete user")
 
-internalUsers.splice(userId,1) //you can also use-delete internalUsers[id]
-
-displayInfo()
+  if (conf==true){
+    internalUsers.splice(userId,1) //you can also use-delete internalUsers[id]
+    displayInfo();
+  }
 }
+
 
 
 
